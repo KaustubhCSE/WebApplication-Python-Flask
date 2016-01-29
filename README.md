@@ -1,0 +1,1 @@
+Web interface for Cppcheck: Created a web interface for static analysis tool Cppcheck using Python Flask and Jinja Modelling templates which supports user session management. This interface allows users to register new profiles and upload c source code files and retrieve the analysis results on web page. Outcomes: Python Flask, Static Analysis tool - Cppcheck.
