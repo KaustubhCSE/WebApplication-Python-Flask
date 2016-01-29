@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+        <body>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+        <title>Results</title>
+        <div class="container">
+            <h1>Analysis results</h1>
+            <form action="" method=post enctype=multipart/form-data>
+                <div align="right" >
+                <input class="btn btn-danger" type=submit name ="logout"  value= "Logout">
+                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class=flashes>
+                            {% for message in messages %}
+                                <li>{{ message | safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </body>
+</html>

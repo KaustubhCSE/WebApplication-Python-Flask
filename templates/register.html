@@ -1,0 +1,43 @@
+<html>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    {% block body %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div class="container" align="center">
+		<h1>Register</h1>
+		<br>
+		{% from "_formhelpers.html" import render_field %}
+		<form method=post action="/register/">
+			<dl>
+                <br>
+                {{render_field(form.firstname)}}
+                <br>
+                {{render_field(form.lastname)}}
+                <br>
+				{{render_field(form.username)}}
+                <br>
+				{{render_field(form.password)}}
+                <br>
+				{{render_field(form.confirm)}}
+                <br>
+			</dl>
+			<p><input class="btn btn-warning" type=submit name = "register" value=Register></p>
+        </form>
+    </div>
+
+    {% if error %}
+			<p class="error"><strong>Error:</strong>{{error}}</p>
+    {% endif %}
+    {% endblock %}
+</body>
+
+</html>

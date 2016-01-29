@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Secure Assignment 3 - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/editor/doc_brython.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/editor/console.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message | safe }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <div align="center">
+        <h1>Please login</h1>
+        <br>
+        <form action="" method="post">
+          <input type="text" placeholder="Username" name="username" value="{{
+            request.form.username }}">
+           <input type="password" placeholder="Password" name="password" value="{{
+            request.form.password }}">
+          <input class="btn btn-default" type="submit" name = "login" value="Login">
+            <input class="btn btn-default" type="submit" name = "register" value="Register">
+        </form>
+        {% if error %}
+          <p class="error"><strong>Error:</strong> {{ error }}
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
